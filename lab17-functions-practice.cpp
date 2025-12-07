@@ -2,7 +2,7 @@
 // Gets three exam scores from the user and shows them 
 // their letter grades
 // Started by: Caitlin Snyder
-// Edited by: [NAME HERE]
+// Edited by: Reagan Berryman, 12/06/2025
 
 #include <iostream>
 using namespace std;
@@ -15,10 +15,16 @@ using namespace std;
  *  Return Value: A double representing a valid test score (0–100)
  ****************************************************************/
 
-// [TO DO: ADD getScore function HERE]
-    // Ask the user for a score and validate input.
-    // Keep asking until the score is between 0 and 100.
-    // Return the valid score.
+
+double getScore() {
+    double input; // Initializes a variable that will be used to store the valid score within the function
+    do { // Do while loop that keeps asking a user to enter a score until a valid score is entered
+        cout << "Please enter a valid test score (Between 0 and 100): "; // Prompts the user to enter a valid score
+        cin >> input; // Defines the input variable as whatever the user inputs
+    } while (input < 1 || input > 100); 
+    return input;
+}
+ 
 
 
 
@@ -32,14 +38,25 @@ using namespace std;
  * Return Value: None (displays the letter grade to the screen)
  ****************************************************************/
 
-// [TO DO : ADD getScore function HERE]
-    // Determine the letter grade and display it.
-    // Example grading scale:
-    // 90–100: A
-    // 80–89:  B
-    // 70–79:  C
-    // 60–69:  D
-    // Below 60: F
+void displayLetterGrade(double score) {
+    if (score >= 90 && score <= 100) { // If/else if statement that outputs the letter grade of each test score depending on the range the test score falls into
+        cout << "A";
+    }
+    else if (score >= 80 && score <= 89) {
+        cout << "B";
+    }
+    else if (score >= 70 && score <= 79) {
+        cout << "C";
+    }
+    else if (score >= 60 && score <= 69) {
+        cout << "D";
+    }
+    else if (score < 60) {
+        cout << "F";
+    }
+        
+}
+    
 
 
 
@@ -61,10 +78,10 @@ int main() {
     cout << "Exam 1: ";
     displayLetterGrade(score1);
 
-    cout << "Exam 2: ";
+   cout << endl << "Exam 2: ";
     displayLetterGrade(score2);
 
-    cout << "Exam 3: ";
+    cout << endl << "Exam 3: ";
     displayLetterGrade(score3);
 
     return 0;
